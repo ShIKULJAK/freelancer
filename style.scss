@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400;700&display=swap');
+$gray: #303633;
+
+/* rgb(48,54,51) */
+
+$lightGray: #f2f2f2;
+$green: #8bebcd;
+
+/* rgb(139, 232, 203)  */
+
+$pink: #9c7a97;
+
+/* rgb(156, 122, 151) */
+
+$white: #fff;
+$headings: 'Source Sans Pro',
+sans-serif;
+$text: 'Lato',
+sans-serif;
+$transition: .3s ease;
+$font: 16px;
+
+/****************
+mixin
+****************/
+
+@mixin flex($justify,
+$align,
+$direction) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+
+/****************
+basic styles
+****************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $text;
+    font-size: $font;
+    color: $gray;
+    line-height: 1.6;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-family: $headings;
+    font-size: 2rem;
+    font-weight: 500;
+    &::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 1px;
+        background: $gray;
+        margin: 15px 0;
+    }
+}
+
+p {
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+button {
+    color: $green;
+    background: none;
+    border: 2px solid $green;
+    font-size: 1rem;
+    padding: 10px 40px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    border-radius: 7px;
+    transition: $transition;
+    cursor: pointer;
+    &:hover {
+        color: $gray;
+        border: 2px solid $gray;
+    }
+}
+
+.container {
+    width: 95%;
+    margin: 10px auto;
+}
+
+main {
+    @include flex(space-between,
+    flex-start,
+    row);
+    @media(max-width: 768px) {
+        @include flex(space-between, flex-start, column);
+    }
+    /*-----ASIDE----*/
+    aside {
+        flex: 0 0 30%;
+        background: linear-gradient(to top, rgba(120, 94, 116, 0.9), rgba(46, 41, 45, 0.9)), url(img/bg.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        @media(max-width: 768px) {
+            width: 100%;
+        }
+        div {
+            text-align: right;
+            margin: 150px 50px 0 0;
+            @media(max-width: 768px) {
+                margin: 10px auto;
+                text-align: center;
+            }
+            img {
+                width: auto;
+                height: 20vh;
+                object-fit: cover;
+                border-radius: 100%;
+                border: 5px solid $pink;
+            }
+            h3 {
+                margin-top: 20px;
+                color: $white;
+                font-weight: 300;
+                letter-spacing: 1px;
+                @media(max-width: 768px) {
+                    margin-top: 10px;
+                    line-height: 1.5rem;
+                }
+                span {
+                    color: $green;
+                    font-style: italic;
+                    font-weight: 500;
+                }
+            }
+            .icons {
+                margin: 30px 0 0 50px;
+                @media(max-width: 768px) {
+                    margin: 15px auto;
+                }
+                a {
+                    color: $green;
+                    font-size: 1.5rem;
+                    margin-left: 15px;
+                    transition: $transition;
+                    @media(max-width: 768px) {
+                        margin: 0 25px 0;
+                    }
+                    &:hover {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+    /*-----RIGHT SIDE----*/
+    .right-side {
+        flex: 0 0 70%;
+    }
+    /*-----ABOUT----*/
+    .about {
+        border-bottom: 1px solid $lightGray;
+    }
+    /*-----PORTFOLIO----*/
+    .portfolio {
+        border-bottom: 1px solid $lightGray;
+        div {
+            @include flex(space-between,
+            center,
+            row);
+            // width: 100%;
+            article {
+                flex: 0 0 48%;
+                padding-bottom: 40px;
+                @media(max-width: 768px) {
+                    flex: 0 0 100%;
+                }
+                div {
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        &:hover {
+                            transform: scale(110%);
+                            transition: $transition;
+                            @media(max-width: 768px) {
+                                transform: none;
+                            }
+                        }
+                    }
+                }
+                h2 {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+}
+
+
+/*-----GET IN TOUCH----*/
+
+.get-in-touch {
+    >div {
+        @include flex(space-between,
+        center,
+        row);
+        padding: 20px 0;
+        @media(max-width: 768px) {
+            @include flex(space-between, center, column);
+        }
+        form {
+            flex: 0 0 65%;
+            @include flex(space-between,
+            center,
+            row);
+            @media(max-width: 768px) {
+                flex: 0 0 100%;
+            }
+            input {
+                border: none;
+                background: $lightGray;
+                display: block;
+                width: 100%;
+                margin: 15px 0;
+                padding: 10px 20px;
+                font-size: 1, 2rem;
+                color: $gray;
+            }
+            input:nth-child(1) {
+                flex: 0 0 48%;
+            }
+            input:nth-child(2) {
+                flex: 0 0 48%;
+                margin: 10px 0;
+            }
+            textarea {
+                flex: 0 0 100%;
+                border: none;
+                background: $lightGray;
+                display: block;
+                width: 100%;
+                padding: 10px 20px;
+                font-size: 1, 2rem;
+                color: $gray;
+            }
+        }
+    }
+    div {
+        flex: 0 0 25%;
+        @include flex(flex-start,
+        flex-start,
+        row);
+        @media(max-width: 768px) {
+            display: inline-block;
+            flex: 0 0 100%;
+        }
+        // margin-left: 50px;
+        span {
+            flex: 0 0 100%;
+            padding-left: 50px;
+            @media(max-width: 768px) {
+                padding-left: 5px;
+                margin: auto;
+            }
+            i {
+                color: $pink;
+                margin-right: 7px;
+            }
+        }
+    }
+    button {
+        @extend button;
+        background: $pink;
+        color: $white;
+        border: none;
+        &:hover {
+            background: $green;
+            color: $white;
+        }
+    }
+}

@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400;700&display=swap");
+/* rgb(48,54,51) */
+/* rgb(139, 232, 203)  */
+/* rgb(156, 122, 151) */
+/****************
+mixin
+****************/
+/****************
+basic styles
+****************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #303633;
+  line-height: 1.6;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #303633;
+  margin: 15px 0;
+}
+
+p {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+button, .get-in-touch button {
+  color: #8bebcd;
+  background: none;
+  border: 2px solid #8bebcd;
+  font-size: 1rem;
+  padding: 10px 40px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  border-radius: 7px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+button:hover {
+  color: #303633;
+  border: 2px solid #303633;
+}
+
+.container {
+  width: 95%;
+  margin: 10px auto;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  /*-----ASIDE----*/
+  /*-----RIGHT SIDE----*/
+  /*-----ABOUT----*/
+  /*-----PORTFOLIO----*/
+}
+@media (max-width: 768px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+main aside {
+  flex: 0 0 30%;
+  background: linear-gradient(to top, rgba(120, 94, 116, 0.9), rgba(46, 41, 45, 0.9)), url(img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+@media (max-width: 768px) {
+  main aside {
+    width: 100%;
+  }
+}
+main aside div {
+  text-align: right;
+  margin: 150px 50px 0 0;
+}
+@media (max-width: 768px) {
+  main aside div {
+    margin: 10px auto;
+    text-align: center;
+  }
+}
+main aside div img {
+  width: auto;
+  height: 20vh;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 5px solid #9c7a97;
+}
+main aside div h3 {
+  margin-top: 20px;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  main aside div h3 {
+    margin-top: 10px;
+    line-height: 1.5rem;
+  }
+}
+main aside div h3 span {
+  color: #8bebcd;
+  font-style: italic;
+  font-weight: 500;
+}
+main aside div .icons {
+  margin: 30px 0 0 50px;
+}
+@media (max-width: 768px) {
+  main aside div .icons {
+    margin: 15px auto;
+  }
+}
+main aside div .icons a {
+  color: #8bebcd;
+  font-size: 1.5rem;
+  margin-left: 15px;
+  transition: 0.3s ease;
+}
+@media (max-width: 768px) {
+  main aside div .icons a {
+    margin: 0 25px 0;
+  }
+}
+main aside div .icons a:hover {
+  color: #fff;
+}
+main .right-side {
+  flex: 0 0 70%;
+}
+main .about {
+  border-bottom: 1px solid #f2f2f2;
+}
+main .portfolio {
+  border-bottom: 1px solid #f2f2f2;
+}
+main .portfolio div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+main .portfolio div article {
+  flex: 0 0 48%;
+  padding-bottom: 40px;
+}
+@media (max-width: 768px) {
+  main .portfolio div article {
+    flex: 0 0 100%;
+  }
+}
+main .portfolio div article div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main .portfolio div article div img:hover {
+  transform: scale(110%);
+  transition: 0.3s ease;
+}
+@media (max-width: 768px) {
+  main .portfolio div article div img:hover {
+    transform: none;
+  }
+}
+main .portfolio div article h2 {
+  margin-top: 15px;
+}
+
+/*-----GET IN TOUCH----*/
+.get-in-touch > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px 0;
+}
+@media (max-width: 768px) {
+  .get-in-touch > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.get-in-touch > div form {
+  flex: 0 0 65%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  .get-in-touch > div form {
+    flex: 0 0 100%;
+  }
+}
+.get-in-touch > div form input {
+  border: none;
+  background: #f2f2f2;
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  padding: 10px 20px;
+  font-size: 1, 2rem;
+  color: #303633;
+}
+.get-in-touch > div form input:nth-child(1) {
+  flex: 0 0 48%;
+}
+.get-in-touch > div form input:nth-child(2) {
+  flex: 0 0 48%;
+  margin: 10px 0;
+}
+.get-in-touch > div form textarea {
+  flex: 0 0 100%;
+  border: none;
+  background: #f2f2f2;
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 1, 2rem;
+  color: #303633;
+}
+.get-in-touch div {
+  flex: 0 0 25%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  .get-in-touch div {
+    display: inline-block;
+    flex: 0 0 100%;
+  }
+}
+.get-in-touch div span {
+  flex: 0 0 100%;
+  padding-left: 50px;
+}
+@media (max-width: 768px) {
+  .get-in-touch div span {
+    padding-left: 5px;
+    margin: auto;
+  }
+}
+.get-in-touch div span i {
+  color: #9c7a97;
+  margin-right: 7px;
+}
+.get-in-touch button {
+  background: #9c7a97;
+  color: #fff;
+  border: none;
+}
+.get-in-touch button:hover {
+  background: #8bebcd;
+  color: #fff;
+}
+
+/*# sourceMappingURL=style.css.map */
